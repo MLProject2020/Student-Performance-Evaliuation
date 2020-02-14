@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainMasterpage.master.cs" Inherits="educationSector.MainMasterpage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>placement prediction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../css/coin-slider.css" />
+<script type="text/javascript" src="../js/cufon-yui.js"></script>
+<script type="text/javascript" src="../js/droid_sans_400-droid_sans_700.font.js"></script>
+<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
+<script type="text/javascript" src="../js/coin-slider.min.js"></script>
+  <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+  
+</head>
+<body>
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="menu_nav">
+        <ul>
+          <li><a href="Index.aspx"><span>HOME</span></a></li>        
+         
+                  <li><a href="frmLogin.aspx">USER LOGIN</a></li>
+        </ul>
+      </div>
+      <div class="logo">
+        <h1><a href="Index.aspx"><span>PLACEMENT PREDICTION</span> <small>Student Placement Prediction Using ML</small></a></h1>
+      </div>
+      <div class="clr"></div>
+     
+    
+    </div>
+  </div>
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+      <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+        <div class="clr"></div>
+    </div>
+    </form>
+
+      
+      </div>
+     <div class="sidebar">
+       
+        <div class="clr"></div>
+        <div class="gadget">
+          <h2 class="star"><span>VISITOR</span> LINKS</h2>
+          <div class="clr"></div>
+          <ul class="sb_menu">
+            <li><a href="Index.aspx"><strong>Home</strong></a></li>
+      <li><a href="frmAboutus.aspx"><strong>About us</strong></a></li>
+      <li><a href="frmManagement.aspx"><strong>Management</strong></a></li>
+      <li><a href="frmDepartments.aspx"><strong>Departments</strong></a></li>
+      <li><a href="frmAlumni.aspx"><strong>Alumni</strong></a></li>
+      <li><a href="frmFacilities.aspx"><strong>Facilities</strong></a></li>
+      <li><a href="frmGallery.aspx"><strong>Gallery</strong></a></li>
+      <li><a href="frmNewsEvents.aspx"><strong>News &  Facts</strong></a></li>
+      <li class="last"><a href="frmContactus.aspx"><strong>Contact us</strong></a></li>
+       
+          </ul>
+        </div>
+        
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <div class="footer_resize">
+      <%--<p class="lf">Copyright &copy; <a href="#">C2C</a>. All Rights Reserved</p>--%>
+      <p class="rf">Placement Prediction <a target="_blank" href="#">System</a></p>
+      <div style="clear:both;"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
