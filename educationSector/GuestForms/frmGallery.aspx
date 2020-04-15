@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  <asp:Panel ID="panelGallery" runat="server">
     <div class="article">
-      <h2> GALLERY</h2>
+      <h2><span>COLLEGE</span> GALLERY</h2>
 
      <br />
      <marquee scrolldelay="150" behavior="alternate">

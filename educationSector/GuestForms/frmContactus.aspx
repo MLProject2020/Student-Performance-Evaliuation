@@ -6,15 +6,16 @@
     <div class="article">
       <h2><span>CONTACT</span> US</h2>
 
-<h3>THE NATIONAL INSTITUE OF ENGINEERING </h3>
-<p>Mananthavadi Road </p> 
-<p>Mysuru - 570008</p>
-<p>Tel: (+91) 821 2480475 /
-(+91) 821 2481220 /
-(+91)821 2480996  </p> 
+<h3>THE NATIONAL INSTITUTE OF ENGINEERING, MYSURU </h3>
+<p>Mananthavady Road </p>
+<p>Vidyaranyapura </p> 
+<p>Mysuru District </p>
+<p>570008  </p>
 
-<p>FAX : 91-821-2485802</p> 
- 
+<p>Mob:   (+91) 821 2480475  </p> 
+
+<p>Mob:   (+91) 821 2481220  </p> 
+<p> </p>  
 
 <br />
     <asp:Image ID="Image1" runat="server" Height="300px" 

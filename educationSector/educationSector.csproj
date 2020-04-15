@@ -50,9 +50,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminForms\BulkPrediction.aspx" />
+    <Content Include="AdminForms\frmAdminFeedbacks.aspx" />
+    <Content Include="AdminForms\frmAdminReplyFeedbacks.aspx" />
+    <Content Include="AdminForms\frmDataset.aspx" />
+    <Content Include="AdminForms\frmStudentAttributes.aspx" />
+    <Content Include="AdminForms\frmUpdateStudents.aspx" />
+    <Content Include="AdminForms\IndividualPrediction.aspx" />
     <Content Include="css\coin-slider.css" />
     <Content Include="css\style.css" />
     <Content Include="GuestForms\frmAboutus.aspx" />
+    <Content Include="AdminForms\frmAddCourse.aspx" />
+    <Content Include="AdminForms\frmAddStudents.aspx" />
+    <Content Include="AdminForms\frmAdminAccount.aspx" />
+    <Content Include="AdminForms\frmAdminHome.aspx" />
     <Content Include="GuestForms\frmContactus.aspx" />
     <Content Include="GuestForms\frmGallery.aspx" />
     <Content Include="GuestForms\frmLogin.aspx" />
@@ -149,6 +160,10 @@
     <Content Include="js\droid_sans_400-droid_sans_700.font.js" />
     <Content Include="js\jquery-1.4.2.min.js" />
     <Content Include="js\script.js" />
+    <Content Include="StudentForms\frmStudentAccount.aspx" />
+    <Content Include="StudentForms\frmStudentFeedbacks.aspx" />
+    <Content Include="StudentForms\frmStudentHome.aspx" />
+    <Content Include="AdminForms\frmViewCourses.aspx" />
     <Content Include="images\black_file.gif" />
     <Content Include="images\blue_file.gif" />
     <Content Include="images\CourseTop.jpg" />
@@ -236,12 +251,103 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminForms\AdminMasterpage.Master.cs">
+      <DependentUpon>AdminMasterpage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\AdminMasterpage.Master.designer.cs">
+      <DependentUpon>AdminMasterpage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\BulkPrediction.aspx.cs">
+      <DependentUpon>BulkPrediction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\BulkPrediction.aspx.designer.cs">
+      <DependentUpon>BulkPrediction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\frmAdminFeedbacks.aspx.cs">
+      <DependentUpon>frmAdminFeedbacks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\frmAdminFeedbacks.aspx.designer.cs">
+      <DependentUpon>frmAdminFeedbacks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\frmAdminReplyFeedbacks.aspx.cs">
+      <DependentUpon>frmAdminReplyFeedbacks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\frmAdminReplyFeedbacks.aspx.designer.cs">
+      <DependentUpon>frmAdminReplyFeedbacks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\frmDataset.aspx.cs">
+      <DependentUpon>frmDataset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\frmDataset.aspx.designer.cs">
+      <DependentUpon>frmDataset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\frmStudentAttributes.aspx.cs">
+      <DependentUpon>frmStudentAttributes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\frmStudentAttributes.aspx.designer.cs">
+      <DependentUpon>frmStudentAttributes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\frmUpdateStudents.aspx.cs">
+      <DependentUpon>frmUpdateStudents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\frmUpdateStudents.aspx.designer.cs">
+      <DependentUpon>frmUpdateStudents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\IndividualPrediction.aspx.cs">
+      <DependentUpon>IndividualPrediction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\IndividualPrediction.aspx.designer.cs">
+      <DependentUpon>IndividualPrediction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BLL.cs" />
+    <Compile Include="BusinessLogic.cs" />
+    <Compile Include="DL1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DL.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GuestForms\frmAboutus.aspx.cs">
       <DependentUpon>frmAboutus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GuestForms\frmAboutus.aspx.designer.cs">
       <DependentUpon>frmAboutus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\frmAddCourse.aspx.cs">
+      <DependentUpon>frmAddCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\frmAddCourse.aspx.designer.cs">
+      <DependentUpon>frmAddCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\frmAddStudents.aspx.cs">
+      <DependentUpon>frmAddStudents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\frmAddStudents.aspx.designer.cs">
+      <DependentUpon>frmAddStudents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\frmAdminAccount.aspx.cs">
+      <DependentUpon>frmAdminAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\frmAdminAccount.aspx.designer.cs">
+      <DependentUpon>frmAdminAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\frmAdminHome.aspx.cs">
+      <DependentUpon>frmAdminHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\frmAdminHome.aspx.designer.cs">
+      <DependentUpon>frmAdminHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="GuestForms\frmContactus.aspx.cs">
       <DependentUpon>frmContactus.aspx</DependentUpon>
@@ -271,6 +377,34 @@
     <Compile Include="GuestForms\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="StudentForms\frmStudentAccount.aspx.cs">
+      <DependentUpon>frmStudentAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentForms\frmStudentAccount.aspx.designer.cs">
+      <DependentUpon>frmStudentAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentForms\frmStudentFeedbacks.aspx.cs">
+      <DependentUpon>frmStudentFeedbacks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentForms\frmStudentFeedbacks.aspx.designer.cs">
+      <DependentUpon>frmStudentFeedbacks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentForms\frmStudentHome.aspx.cs">
+      <DependentUpon>frmStudentHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentForms\frmStudentHome.aspx.designer.cs">
+      <DependentUpon>frmStudentHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\frmViewCourses.aspx.cs">
+      <DependentUpon>frmViewCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\frmViewCourses.aspx.designer.cs">
+      <DependentUpon>frmViewCourses.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GuestForms\MainMasterpage.Master.cs">
       <DependentUpon>MainMasterpage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -279,10 +413,30 @@
       <DependentUpon>MainMasterpage.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentForms\StudentMasterpage.Master.cs">
+      <DependentUpon>StudentMasterpage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentForms\StudentMasterpage.Master.designer.cs">
+      <DependentUpon>StudentMasterpage.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminForms\AdminMasterpage.Master" />
+    <None Include="DL.xsc">
+      <DependentUpon>DL.xsd</DependentUpon>
+    </None>
+    <None Include="DL.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DL1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DL.xss">
+      <DependentUpon>DL.xsd</DependentUpon>
+    </None>
     <None Include="images\demo\Thumbs.db" />
     <Content Include="GuestForms\MainMasterpage.Master" />
+    <Content Include="StudentForms\StudentMasterpage.Master" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="ASmsCtrl">
@@ -304,7 +458,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>8320</DevelopmentServerPort>
+          <DevelopmentServerPort>60564</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

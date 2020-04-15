@@ -56,8 +56,7 @@
                                                             <b>UserId</b>
                                                         </td>
                                                         <td>
-                                                            <asp:TextBox ID="Txt_User" runat="server" CssClass="txtBox" Width="162px" 
-                                                                ontextchanged="Txt_User_TextChanged"></asp:TextBox>
+                                                            <asp:TextBox ID="Txt_User" runat="server" CssClass="txtBox" Width="162px"></asp:TextBox>
                                                         </td>
                                                         <td align="center" valign="middle">
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 

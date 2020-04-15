@@ -40,6 +40,7 @@ namespace educationSector
         {
             try
             {
+                BusinessLogic db = new BusinessLogic();
                 DataTable tabUser = new DataTable();
 
                 if (DropDown_Type.SelectedIndex != -1)
@@ -51,7 +52,7 @@ namespace educationSector
                         if (tabUser.Rows.Count > 0)
                         {
                             MaintainState(Txt_User.Text.Trim());
-                            //Response.Redirect("~/AdminForms/frmAdminHome.aspx");
+                            Response.Redirect("~/AdminForms/frmAdminHome.aspx");
                         }
                         else
                         {
@@ -66,7 +67,7 @@ namespace educationSector
                         {
                             Session["RegNo"] = tabUser.Rows[0]["RegNo"].ToString();
                             MaintainState(Txt_User.Text.Trim());
-                           // Response.Redirect("~/StudentForms/frmStudentHome.aspx");
+                            Response.Redirect("~/StudentForms/frmStudentHome.aspx");
                         }
                         else
                         {
@@ -102,11 +103,6 @@ namespace educationSector
             RequiredFieldValidator1.ControlToValidate = "Txt_User";
             RequiredFieldValidator2.Text = "*";
             RequiredFieldValidator2.ControlToValidate = "Txt_Password";
-        }
-
-        protected void Txt_User_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
     }
