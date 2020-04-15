@@ -40,7 +40,6 @@ namespace educationSector
         {
             try
             {
-                BusinessLogic db = new BusinessLogic();
                 DataTable tabUser = new DataTable();
 
                 if (DropDown_Type.SelectedIndex != -1)
