@@ -62,7 +62,7 @@
           
        <li><a href="frmStudentHome.aspx"><strong>HOME</strong></a></li>
      
-      <%--  <li><a href="frmStudentFeedbacks.aspx"><strong>FEEDBACKS</strong></a></li>--%>
+        <li><a href="frmStudentFeedbacks.aspx"><strong>FEEDBACKS</strong></a></li>
         
       <li><a href="frmStudentAccount.aspx"><strong>ACCOUNT</strong></a></li>
       <li class="last"><a href="../GuestForms/frmLogin.aspx"><strong>SIGNOUT</strong></a></li>

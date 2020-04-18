@@ -64,11 +64,17 @@
       <li><a href="frmAddCourse.aspx"><strong>ADD COURSES</strong></a></li>
       <li><a href="frmAddStudents.aspx"><strong>REGISTER STUDENTS</strong></a></li>           
       <li><a href="frmUpdateStudents.aspx"><strong>SEARCH STUDENT</strong></a></li> 
-      <%--<li><a href="frmAdminFeedbacks.aspx"><strong>FEEDBACKS</strong></a></li>--%>
+      <li><a href="frmAdminFeedbacks.aspx"><strong>FEEDBACKS</strong></a></li>
 
        <li><a href="frmDataset.aspx"><strong>DATASET</strong></a></li>  
-       <li><a href="IndividualPrediction.aspx"><strong>INDIVIDUAL PREDICTION</strong></a></li> 
-        <li><a href="BulkPrediction.aspx"><strong>CLASS RESULTS</strong></a></li> 
+       <li><a href="IndividualPrediction.aspx"><strong>INDIVIDUAL PREDICTION (NB)</strong></a></li> 
+        <li><a href="BulkPrediction.aspx"><strong>CLASS RESULTS (NB)</strong></a></li> 
+
+      
+        <li><a href="DT_BulkPrediction.aspx"><strong>CLASS RESULTS (DT)</strong></a></li> 
+
+          <%--<li><a href="KNN_IndividualPrediction.aspx"><strong>INDIVIDUAL PREDICTION(KNN)</strong></a></li> --%>
+        <li><a href="KNN_BulkPrediction.aspx"><strong>CLASS RESULTS (KNN)</strong></a></li> 
      
       <li><a href="frmAdminAccount.aspx"><strong>ACCOUNT</strong></a></li>
       <li class="last"><a href="../GuestForms/frmLogin.aspx"><strong>SIGNOUT</strong></a></li>

@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminForms/AdminMasterpage.Master" AutoEventWireup="true" CodeBehind="BulkPrediction.aspx.cs" Inherits="educationSector.AdminForms.BulkPrediction" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminForms/AdminMasterpage.Master" AutoEventWireup="true" CodeBehind="DT_BulkPrediction.aspx.cs" Inherits="educationSector.AdminForms.DT_BulkPrediction" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <asp:Panel ID="panelAboutus" runat="server">
+<asp:Panel ID="panelAboutus" runat="server">
   <div class="article">
    <h2>RESULT PREDICTION MODULE!!!</h2>
 
@@ -84,13 +84,13 @@
 <asp:Panel ID="panelImport" runat="server" Visible="False">
 
 		 <div class="article">
-			 <h2>PREDICTION (NAIVE BAYES)</h2>
+			 <h2>PREDICTION (DECISION TREE)</h2>
     		   
             <table style="width: 100%;">
                 <tr>
                     <td>
                         &nbsp;<span><asp:Button ID="btnResult" runat="server" Height="40px" 
-                            onclick="btnResult_Click" Text="RESULT PREDICTION (NB)" Width="300px" />
+                            onclick="btnResult_Click" Text="RESULT PREDICTION (DT)" Width="300px" />
                         </span>
                     </td>
                     <td>
@@ -146,7 +146,7 @@
         <asp:Panel ID="Panel5" runat="server" Visible="False">
          <div class="article">
             <h2>
-                RESULT ANALYSIS (NAIVE BAYES)!
+                RESULT ANALYSIS (DECISION TREE)!
             </h2>
 
             <asp:Table ID="tableResults" runat="server">
@@ -157,6 +157,4 @@
        
 
    </asp:Panel>
-
-
 </asp:Content>

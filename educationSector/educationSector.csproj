@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -51,12 +52,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminForms\BulkPrediction.aspx" />
+    <Content Include="AdminForms\DT_BulkPrediction.aspx" />
     <Content Include="AdminForms\frmAdminFeedbacks.aspx" />
     <Content Include="AdminForms\frmAdminReplyFeedbacks.aspx" />
     <Content Include="AdminForms\frmDataset.aspx" />
     <Content Include="AdminForms\frmStudentAttributes.aspx" />
     <Content Include="AdminForms\frmUpdateStudents.aspx" />
     <Content Include="AdminForms\IndividualPrediction.aspx" />
+    <Content Include="AdminForms\KNN_BulkPrediction.aspx" />
+    <Content Include="AdminForms\KNN_IndividualPrediction.aspx" />
+    <Content Include="AdminForms\_CompareAlgorithms.aspx" />
     <Content Include="css\coin-slider.css" />
     <Content Include="css\style.css" />
     <Content Include="GuestForms\frmAboutus.aspx" />
@@ -265,6 +270,13 @@
     <Compile Include="AdminForms\BulkPrediction.aspx.designer.cs">
       <DependentUpon>BulkPrediction.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\DT_BulkPrediction.aspx.cs">
+      <DependentUpon>DT_BulkPrediction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\DT_BulkPrediction.aspx.designer.cs">
+      <DependentUpon>DT_BulkPrediction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\frmAdminFeedbacks.aspx.cs">
       <DependentUpon>frmAdminFeedbacks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -306,6 +318,27 @@
     </Compile>
     <Compile Include="AdminForms\IndividualPrediction.aspx.designer.cs">
       <DependentUpon>IndividualPrediction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\KNN_BulkPrediction.aspx.cs">
+      <DependentUpon>KNN_BulkPrediction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\KNN_BulkPrediction.aspx.designer.cs">
+      <DependentUpon>KNN_BulkPrediction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\KNN_IndividualPrediction.aspx.cs">
+      <DependentUpon>KNN_IndividualPrediction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\KNN_IndividualPrediction.aspx.designer.cs">
+      <DependentUpon>KNN_IndividualPrediction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\_CompareAlgorithms.aspx.cs">
+      <DependentUpon>_CompareAlgorithms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForms\_CompareAlgorithms.aspx.designer.cs">
+      <DependentUpon>_CompareAlgorithms.aspx</DependentUpon>
     </Compile>
     <Compile Include="BLL.cs" />
     <Compile Include="BusinessLogic.cs" />
@@ -437,17 +470,6 @@
     <None Include="images\demo\Thumbs.db" />
     <Content Include="GuestForms\MainMasterpage.Master" />
     <Content Include="StudentForms\StudentMasterpage.Master" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="ASmsCtrl">
-      <Guid>{028C9C6F-2862-4117-8F9D-8C0FF78C8A8C}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -10,15 +10,16 @@ using System.IO;
 
 namespace educationSector.AdminForms
 {
-    public partial class IndividualPrediction : System.Web.UI.Page
+    public partial class KNN_IndividualPrediction : System.Web.UI.Page
     {
         static DataTable tabDataset = new DataTable();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+           
         }
-              
+
+       
         protected void btnCheck_Click(object sender, EventArgs e)
         {
             try
@@ -34,7 +35,7 @@ namespace educationSector.AdminForms
                 {
                     GetDataset();
 
-                    NaiveBayesAlgorithm();
+                    KNNAlgorithm();
                 }
                 else
                 {
@@ -212,134 +213,265 @@ namespace educationSector.AdminForms
                 lblDataset.Text = "Training Dataset Not Found!!!";
             }
         }
-
-        double pi;
-        int nc, n;
-        double result;
+               
         ArrayList output = new ArrayList();
         ArrayList mul = new ArrayList();
-
-        //function which contains the navie bayesian steps
-        private void NaiveBayesAlgorithm()
+               
+        private void KNNAlgorithm()
         {
-            try
+            BLL obj = new BLL();
+            BusinessLogic obj1 = new BusinessLogic();
+
+            ArrayList _Distance = new ArrayList();
+            ArrayList _RegNo = new ArrayList();
+
+
+            string[] attributes = { "Hrs", "Regular", "Interaction", "TimeManagement", "GraspingAbility", "EXActivities", "PrevSemResults", "SSLC", "PUC", "IHS" };
+
+
+            int[] classify = { DropDownListHrs.SelectedIndex, DropDownListRegular.SelectedIndex, DropDownListInteraction.SelectedIndex,
+                             DropDownListTimeMgt.SelectedIndex,DropDownListGraspingAbility.SelectedIndex,DropDownListExActivities.SelectedIndex,
+                             DropDownListPrevResults.SelectedIndex,DropDownListSSLC.SelectedIndex,DropDownListPUC.SelectedIndex,
+                             DropDownListIHS.SelectedIndex};
+
+            int m = 5;
+
+            //finding the distance between the objects
+            for (int i = 0; i < tabDataset.Rows.Count; i++)
             {
-                ArrayList s = new ArrayList();
+                double _val = 0.0;
 
-                s = GetSubject(lblCourse.Text);
-
-                int m = 10;
-                double p = 0.25;
-
-
-                string[] attributes = { "Hrs", "Regular", "Interaction", "TimeManagement", "GraspingAbility", "EXActivities", "PrevSemResults", "SSLC", "PUC", "IHS" };
-
-                string[] classify ={DropDownListHrs.SelectedValue, DropDownListRegular.SelectedValue, DropDownListInteraction.SelectedValue, DropDownListTimeMgt.SelectedValue, DropDownListGraspingAbility.SelectedValue, 
-                        DropDownListExActivities.SelectedValue, DropDownListPrevResults.SelectedValue, 
-                        DropDownListSSLC.SelectedValue, DropDownListPUC.SelectedValue, DropDownListIHS.SelectedValue};
-
-                for (int i = 0; i < s.Count; i++)
+                for (int j = 0; j < classify.Length; j++)
                 {
-                    mul.Clear();
 
-                    for (int j = 0; j < attributes.Length; j++)
+                    //start identifying the dropdownlist index
+
+                    if (j == 0)
                     {
-                        n = 0;
-                        nc = 0;
+                        //Hrs
+                        string _HrsData = DropDownListHrs.Items.FindByValue(tabDataset.Rows[i][j + 2].ToString()).ToString();
 
-                        for (int d = 0; d < tabDataset.Rows.Count; d++)
+                        ListItem _itemHrs = new ListItem(_HrsData, tabDataset.Rows[i][j + 2].ToString());
+                        int _indexHrs = DropDownListHrs.Items.IndexOf(_itemHrs);
+
+                        _val += Math.Pow(double.Parse(_indexHrs.ToString()) - double.Parse(classify[j].ToString()), 2);
+                    }
+
+                    if (j == 1)
+                    {
+                        //regular
+                        string _RegularData = DropDownListRegular.Items.FindByValue(tabDataset.Rows[i][j + 2].ToString()).ToString();
+
+                        ListItem _itemRegular = new ListItem(_RegularData, tabDataset.Rows[i][j + 2].ToString());
+                        int _indexRegular = DropDownListRegular.Items.IndexOf(_itemRegular);
+
+                        _val += Math.Pow(double.Parse(_indexRegular.ToString()) - double.Parse(classify[j].ToString()), 2);
+                    }
+
+                    if (j == 2)
+                    {
+                        //Interaction
+                        string _InterationData = DropDownListInteraction.Items.FindByValue(tabDataset.Rows[i][j + 2].ToString()).ToString();
+
+                        ListItem _itemInteraction = new ListItem(_InterationData, tabDataset.Rows[i][j + 2].ToString());
+                        int _indexInteraction = DropDownListInteraction.Items.IndexOf(_itemInteraction);
+
+                        _val += Math.Pow(double.Parse(_indexInteraction.ToString()) - double.Parse(classify[j].ToString()), 2);
+                    }
+
+                    if (j == 3)
+                    {
+                        //time management
+                        string _TimeData = DropDownListTimeMgt.Items.FindByValue(tabDataset.Rows[i][j + 2].ToString()).ToString();
+
+                        ListItem _itemTimeManagement = new ListItem(_TimeData, tabDataset.Rows[i][j + 2].ToString());
+                        int _indexTimeManagement = DropDownListTimeMgt.Items.IndexOf(_itemTimeManagement);
+
+                        _val += Math.Pow(double.Parse(_indexTimeManagement.ToString()) - double.Parse(classify[j].ToString()), 2);
+                    }
+
+                    if (j == 4)
+                    {
+                        //GraspingAbility
+                        string _dataTextGraspingAbility = DropDownListGraspingAbility.Items.FindByValue(tabDataset.Rows[i][j + 2].ToString()).ToString();
+
+                        ListItem _itemGraspingAbility = new ListItem(_dataTextGraspingAbility, tabDataset.Rows[i][j + 2].ToString());
+                        int _indexGraspingAbility = DropDownListGraspingAbility.Items.IndexOf(_itemGraspingAbility);
+
+                        _val += Math.Pow(double.Parse(_indexGraspingAbility.ToString()) - double.Parse(classify[j].ToString()), 2);
+                    }
+
+                    if (j == 5)
+                    {
+                        //EXActivities
+                        string _ExActivitiesData = DropDownListExActivities.Items.FindByValue(tabDataset.Rows[i][j + 2].ToString()).ToString();
+
+                        ListItem _itemEXActivities = new ListItem(_ExActivitiesData, tabDataset.Rows[i][j + 2].ToString());
+                        int _indexEXActivities = DropDownListExActivities.Items.IndexOf(_itemEXActivities);
+
+                        _val += Math.Pow(double.Parse(_indexEXActivities.ToString()) - double.Parse(classify[j].ToString()), 2);
+                    }
+
+                    if (j == 6)
+                    {
+                        //Prev Results
+                        string _dataTextPrev = DropDownListPrevResults.Items.FindByValue(tabDataset.Rows[i][j + 2].ToString()).ToString();
+
+                        ListItem _itemPrevSemResults = new ListItem(_dataTextPrev, tabDataset.Rows[i][j + 2].ToString());
+                        int _indexPrevSemResults = DropDownListPrevResults.Items.IndexOf(_itemPrevSemResults);
+
+                        _val += Math.Pow(double.Parse(_indexPrevSemResults.ToString()) - double.Parse(classify[j].ToString()), 2);
+                    }
+
+                    if (j == 7)
+                    {
+                        //SSLC
+                        string _dataTextSSLC = DropDownListSSLC.Items.FindByValue(tabDataset.Rows[i][j + 2].ToString()).ToString();
+
+                        ListItem _itemSSLC = new ListItem(_dataTextSSLC, tabDataset.Rows[i][j + 2].ToString());
+                        int _indexSSLC = DropDownListSSLC.Items.IndexOf(_itemSSLC);
+
+                        _val += Math.Pow(double.Parse(_indexSSLC.ToString()) - double.Parse(classify[j].ToString()), 2);
+                    }
+
+                    if (j == 8)
+                    {
+                        //PUC
+                        string _dataTextPUC = DropDownListPUC.Items.FindByValue(tabDataset.Rows[i][j + 2].ToString()).ToString();
+
+                        ListItem _itemPUC = new ListItem(_dataTextPUC, tabDataset.Rows[i][j + 2].ToString());
+                        int _indexPUC = DropDownListPUC.Items.IndexOf(_itemPUC);
+
+                        _val += Math.Pow(double.Parse(_indexPUC.ToString()) - double.Parse(classify[j].ToString()), 2);
+                    }
+
+                    if (j == 9)
+                    {
+                        //IHS
+                        string _dataIHS = DropDownListIHS.Items.FindByValue(tabDataset.Rows[i][j + 2].ToString()).ToString();
+
+                        ListItem _itemIHS = new ListItem(_dataIHS, tabDataset.Rows[i][j + 2].ToString());
+                        int _indexIHS = DropDownListIHS.Items.IndexOf(_itemIHS);
+
+                        _val += Math.Pow(double.Parse(_indexIHS.ToString()) - double.Parse(classify[j].ToString()), 2);
+                    }
+
+                    //end                                       
+                }
+
+                _val = Math.Sqrt(_val);
+
+                _Distance.Add(Math.Round(_val, 1));
+                _RegNo.Add(tabDataset.Rows[i]["RegNo"].ToString());
+            }
+
+            ArrayList temp = new ArrayList();
+            ArrayList arrayRegno = new ArrayList();
+
+            ArrayList arrayExists = new ArrayList();
+            int d = 0;
+
+            for (int x = 0; x < _Distance.Count; x++)
+            {
+                temp.Add(_Distance[x]);
+            }
+
+            temp.Sort();
+
+            for (int y = 0; y < m; y++)
+            {
+                d = 0;
+
+                for (int z = 0; z < _Distance.Count; z++)
+                {
+                    if (_Distance[z].Equals(temp[y]))
+                    {
+                        if (d == 0 && !arrayExists.Contains(_RegNo[z]))
                         {
-                            string _para = tabDataset.Rows[d][j + 2].ToString();
-                            string _res = tabDataset.Rows[d][m + 2].ToString();
+                            arrayRegno.Add(_RegNo[z]);
 
-                            if (tabDataset.Rows[d][j + 2].ToString().Equals(classify[j]))
-                            {
-                                ++n;
+                            arrayExists.Add(_RegNo[z]);
 
-                                if (tabDataset.Rows[d][m + 2].ToString().Equals(s[i]))
+                            ++d;
 
-                                    ++nc;
-                            }
+                        }
+                    }
+                }
+            }
+
+            if (arrayRegno.Count > 0)
+            {
+                int cnt;
+
+                ArrayList arrayCnt = new ArrayList();
+                ArrayList arrayOutcome = new ArrayList();
+
+                DataTable tabOutcome = new DataTable();
+                tabOutcome = obj1.GetDistinctResult(lblCourse.Text);
+
+                for (int i = 0; i < tabOutcome.Rows.Count; i++)
+                {
+                    cnt = 0;
+
+                    for (int j = 0; j < arrayRegno.Count; j++)
+                    {
+                        DataTable tabStudentResult = new DataTable();
+                        tabStudentResult = obj1.Search_Student(arrayRegno[j].ToString());
+
+                        if (tabStudentResult.Rows[0]["Result"].ToString().Equals(tabOutcome.Rows[i]["Result"].ToString()))
+                        {
+                            ++cnt;
+                        }
+                    }
+
+                    arrayCnt.Add(cnt);
+                    arrayOutcome.Add(tabOutcome.Rows[i]["Result"].ToString());
+                }
+
+                ArrayList temp1 = new ArrayList();
+
+                for (int x = 0; x < arrayCnt.Count; x++)
+                {
+                    temp1.Add(arrayCnt[x]);
+                }
+
+                temp1.Sort();
+                temp1.Reverse();
+
+                for (int y = 0; y < arrayCnt.Count; y++)
+                {
+                    if (arrayCnt[y].Equals(temp1[0]))
+                    {
+                        Panel2.Visible = true;
+
+                        lblOutput.Font.Bold = true;
+                        lblOutput.ForeColor = System.Drawing.Color.Green;
+                        lblOutput.Text = arrayOutcome[y].ToString();
+
+                        lblName.Text = txtName.Text;
+                        lblCName.Text = lblCourse.Text;
+
+                        if (arrayOutcome[y].Equals("Bad"))
+                        {
+                            lblRecc.Text = "Poor result. Should give more time for studies. Should be regular to class. Should give more visits to library and go through technical books. Should improve interaction with faculties. Should improve grasping ability, decision making. Should be punctual to class. Faculties should give more guidance to improve the performance in coming semester.";
+                        }
+                        else if (arrayOutcome[y].Equals("Average"))
+                        {
+                            lblRecc.Text = "Average result. Should give more time for studies. Should be regular to class. Should give more visits to library and go through technical books. Should improve time management and grasping ability. Should be punctual to class. Faculties should give more guidance to improve the performance in coming semester.";
+                        }
+                        else if (arrayOutcome[y].Equals("Good"))
+                        {
+                            lblRecc.Text = "Good work. Should give more time for studies. Should give more visits to library and go through technical books. Should improve interaction, stress management and decision making skills. Should be punctual to improve the performance in coming semester.";
+                        }
+                        else
+                        {
+                            lblRecc.Text = "Outstanding work. Should keep up the good work.";
                         }
 
-                        double x = m * p;
-                        double y = n + m;
-                        double z = nc + x;
-
-                        pi = z / y;
-                        mul.Add(Math.Abs(pi));
+                        return;
                     }
-
-                    double mulres = 1.0;
-
-                    for (int z = 0; z < mul.Count; z++)
-                    {
-                        mulres *= double.Parse(mul[z].ToString());
-
-                    }
-
-                    result = mulres * p;
-                    output.Add(Math.Abs(result));
-
-                }
-
-                DisplayOutput(s);
-            }
-            catch
-            {
-
-            }
-
-        }
-
-        //function to display the output
-        private void DisplayOutput(ArrayList s)
-        {
-            ArrayList list1 = new ArrayList();
-
-            for (int x = 0; x < s.Count; x++)
-            {
-                list1.Add(output[x]);
-            }
-
-            list1.Sort();
-            list1.Reverse();
-
-            for (int y = 0; y < s.Count; y++)
-            {
-                if (output[y].Equals(list1[0]))
-                {
-                    Panel2.Visible = true;
-
-                    lblOutput.Font.Bold = true;
-                    lblOutput.ForeColor = System.Drawing.Color.Green;
-                    lblOutput.Text = s[y].ToString();
-
-                    lblName.Text = txtName.Text;
-                    lblCName.Text = lblCourse.Text;
-
-                    if (s[y].Equals("Bad"))
-                    {
-                        lblRecc.Text = "Poor result. Should give more time for studies. Should be regular to class. Should give more visits to library and go through technical books. Should improve interaction with faculties. Should improve grasping ability, decision making. Should be punctual to class. Faculties should give more guidance to improve the performance in coming semester.";
-                    }
-                    else if (s[y].Equals("Average"))
-                    {
-                        lblRecc.Text = "Average result. Should give more time for studies. Should be regular to class. Should give more visits to library and go through technical books. Should improve time management and grasping ability. Should be punctual to class. Faculties should give more guidance to improve the performance in coming semester.";
-                    }
-                    else if (s[y].Equals("Good"))
-                    {
-                        lblRecc.Text = "Good work. Should give more time for studies. Should give more visits to library and go through technical books. Should improve interaction, stress management and decision making skills. Should be punctual to improve the performance in coming semester.";
-                    }
-                    else
-                    {
-                        lblRecc.Text = "Outstanding work. Should keep up the good work.";
-                    }
-
-                    return;
                 }
             }
-
-
         }
 
         //function to get the subjects(course names/subject names)
@@ -382,7 +514,7 @@ namespace educationSector.AdminForms
             {
                 Panel2.Visible = false;
                 btnCheck.Enabled = true;
-                
+
                 txtName.Text = tab.Rows[0]["Name"].ToString();
                 lblCourse.Text = tab.Rows[0]["CName"].ToString();
                 lblSem.Text = tab.Rows[0]["Sem"].ToString();
@@ -415,7 +547,7 @@ namespace educationSector.AdminForms
                 tab = obj.GetStudentAttributes(TextBox_Reg.Text);
 
                 if (tab.Rows.Count > 0)
-                {                   
+                {
                     //Hrs
                     string HrsData = DropDownListHrs.Items.FindByValue(tab.Rows[0]["Hrs"].ToString()).ToString();
 
@@ -540,6 +672,7 @@ namespace educationSector.AdminForms
 
             }
         }
+        
         
     }
 }

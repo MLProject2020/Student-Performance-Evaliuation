@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminForms/AdminMasterpage.Master" AutoEventWireup="true" CodeBehind="IndividualPrediction.aspx.cs" Inherits="educationSector.AdminForms.IndividualPrediction" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminForms/AdminMasterpage.Master" AutoEventWireup="true" CodeBehind="KNN_IndividualPrediction.aspx.cs" Inherits="educationSector.AdminForms.KNN_IndividualPrediction" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -103,6 +103,7 @@
                                                     <asp:ListItem>4</asp:ListItem>
                                                     <asp:ListItem>3</asp:ListItem>
                                                     <asp:ListItem>2</asp:ListItem>
+                                                    <asp:ListItem>1</asp:ListItem>
                                                 </asp:DropDownList>
                                             </td>
                                             <td>
@@ -297,7 +298,7 @@
                                                 &nbsp;</td>
                                             <td align="left" class="style4">
                                                 <asp:Button ID="btnCheck" runat="server" Height="50px" onclick="btnCheck_Click" 
-                                                    Text="Result Prediction (NB)" Enabled="False" />
+                                                    Text="Result Prediction (KNN)" Enabled="False" />
                                                 &nbsp;&nbsp;&nbsp;</td>
                                             <td>
                                                 &nbsp;</td>
@@ -343,7 +344,7 @@
     <br />
    
       <asp:Panel ID="Panel2" runat="server" Visible="False">
-        <h2>RESULT PREDICTION (NAIVE BAYES)</h2>
+        <h2>RESULT PREDICTION (KNN)</h2>
           <table style="width: 35%;" style="BORDER-RIGHT: dimgray 1px solid; BORDER-TOP: dimgray 1px solid; BORDER-LEFT: dimgray 1px solid; WIDTH: 400px; BORDER-BOTTOM: dimgray 1px solid; HEIGHT: 188px; BACKGROUND-COLOR: white"
 							cellSpacing="1" cellPadding="1" width="418" bgColor="#0" border="0">
               <tr>

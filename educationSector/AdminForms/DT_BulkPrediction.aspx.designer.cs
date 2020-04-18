@@ -10,7 +10,7 @@
 namespace educationSector.AdminForms {
     
     
-    public partial class BulkPrediction {
+    public partial class DT_BulkPrediction {
         
         /// <summary>
         /// panelAboutus control.

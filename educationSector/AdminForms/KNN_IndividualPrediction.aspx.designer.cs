@@ -10,7 +10,7 @@
 namespace educationSector.AdminForms {
     
     
-    public partial class IndividualPrediction {
+    public partial class KNN_IndividualPrediction {
         
         /// <summary>
         /// panelAboutus control.
